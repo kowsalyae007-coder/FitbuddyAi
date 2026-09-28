@@ -2,7 +2,7 @@ import os
 from typing import Optional
 
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import HTMLResponse
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from google import genai
 from dotenv import load_dotenv
@@ -32,23 +32,11 @@ class FitnessRequest(BaseModel):
 
 class FitnessResponse(BaseModel):
     plan: str
-
-
-@app.get("/", response_class=HTMLResponse)
+@app.get("/")
 async def home():
-    return """
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>FitBuddy</title>
-    </head>
-    <body>
-        <h1>FitBuddy – AI Fitness Plan Generator</h1>
-        <p>Backend is running successfully!</p>
-        <p>Frontend will be added next.</p>
-    </body>
-    </html>
-    """
+    return FileResponse("index.html")
+
+
 
 
 @app.get("/health")
