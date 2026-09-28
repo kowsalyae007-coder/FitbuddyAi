@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitBuddy AI</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f7f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .box {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 4px 15px #ccc;
+    }
+
+    h1 {
+      text-align: center;
+      color: #16805c;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 7px;
+      box-sizing: border-box;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 22px;
+      background: #16805c;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      padding: 15px;
+      background: #eef8f3;
+      border-radius: 10px;
+      white-space: pre-wrap;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+
+    <h1>🏃 FitBuddy AI</h1>
+
+    <label>Age</label>
+    <input id="age" type="number" placeholder="Enter your age">
+
+    <label>Fitness Goal</label>
+    <select id="goal">
+      <option>General Fitness</option>
+      <option>Strength</option>
+      <option>Flexibility</option>
+      <option>Endurance</option>
+    </select>
+
+    <label>Activity Level</label>
+    <select id="level">
+      <option>Beginner</option>
+      <option>Intermediate</option>
+      <option>Advanced</option>
+    </select>
+
+    <button onclick="generatePlan()">Generate Fitness Plan</button>
+
+    <div id="result"></div>
+
+  </div>
+
+  <script>
+    function generatePlan() {
+
+      const age = document.getElementById("age").value;
+      const goal = document.getElementById("goal").value;
+      const level = document.getElementById("level").value;
+
+      if (age === "") {
+        document.getElementById("result").innerText =
+          "Please enter your age.";
+        return;
+      }
+
+      let plan =
+        "🏃 FITBUDDY AI FITNESS PLAN\n\n" +
+        "Age: " + age + "\n" +
+        "Goal: " + goal + "\n" +
+        "Activity Level: " + level + "\n\n" +
+
+        "📅 Weekly Plan\n\n" +
+
+        "Monday:\n" +
+        "• 10 min warm-up\n" +
+        "• 15 min brisk walking\n" +
+        "• 2 sets of 10 squats\n\n" +
+
+        "Tuesday:\n" +
+        "• 10 min walking\n" +
+        "• 2 sets of 8 wall push-ups\n" +
+        "• 5 min stretching\n\n" +
+
+        "Wednesday:\n" +
+        "• 20 min easy walking\n" +
+        "• Light stretching\n\n" +
+
+        "Thursday:\n" +
+        "• 10 min warm-up\n" +
+        "• 2 sets of 10 squats\n" +
+        "• 2 sets of 8 wall push-ups\n\n" +
+
+        "Friday:\n" +
+        "• 20 min brisk walking\n" +
+        "• 5 min stretching\n\n" +
+
+        "Saturday:\n" +
+        "• Light activity or outdoor walk\n" +
+        "• 10 min stretching\n\n" +
+
+        "Sunday:\n" +
+        "• Rest day 😌\n\n" +
+
+        "💧 Stay hydrated and increase activity gradually.";
+
+      document.getElementById("result").innerText = plan;
+    }
+  </script>
+
+</body>
+</html>
